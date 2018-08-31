@@ -42,9 +42,22 @@ function submitButtonClick() {
                 <td>` + employeeSalary +`</td>
             </tr>
     `)
-    $('#firstNameInput').val('');
-    $('#lastNameInput').val('');
-    $('#employeeIDInput').val('');
-    $('#jobTitleInput').val('');
-    $('#annualSalaryInput').val(''); // empties the inputs after button click
+
+    $('#firstNameInput').val(''); // empties the inputs after button click
+    $('#lastNameInput').val('');  //
+    $('#employeeIDInput').val(''); //
+    $('#jobTitleInput').val(''); //
+    $('#annualSalaryInput').val(''); // 
 } // end submitButtonClick
+
+// Using the stored information, calculate monthly costs and
+// append this to the to DOM. If the total monthly cost exceeds  
+// $20,000, add a red background color to the total monthly cost.
+function calculateMonthlyCosts () {
+    let employeeSalary = $('#annualSalaryInput').val();
+    let totalCosts = 0;
+    totalCosts += (employeeSalary/12);
+    
+    
+} // end calculateMonthly Costs
+

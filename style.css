@@ -1,4 +1,6 @@
 body {
+    max-width: 800px;
+    margin: auto;
     background-color: #eeeeee;
 }
 
@@ -12,4 +14,8 @@ h2 {
 
 th {
     font-family: 'Arial', sans-serif;
+}
+
+footer {
+    float: right;
 }
