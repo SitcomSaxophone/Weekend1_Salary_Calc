@@ -1,22 +1,21 @@
 $(document).ready(readyNow); // end doc ready
 
-class Employee {
-    constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.idNumber = idNumber;
-        this.jobTitle = jobTitle;
-        this.annualSalary = annualSalary;
-    }
-} // end Employee class constructor
+// class Employee {
+//     constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.idNumber = idNumber;
+//         this.jobTitle = jobTitle;
+//         this.annualSalary = annualSalary;
+//     }
+// } // end Employee class constructor
 
-let employees = []; // array of employees
-let newEmployee = new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
-    $('#jobTitleInput').val(), $('#annualSalaryInput').val()); // end newEmployee variable
+//let employees = []; // array of employees
+//const newEmployee = new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
+//   $('#jobTitleInput').val(), $('#annualSalaryInput').val()); // end newEmployee variable
 
 
 function readyNow() {
-    console.log('jq');
     submitEmployee();
 } // end readyNow 
 
@@ -27,12 +26,20 @@ function submitEmployee() {
 }
 function submitButtonClick() {
     console.log('clicked');
-    employees.push(newEmployee);
+    let employeeFirst = $('#firstNameInput').val();
+    let employeeLast = $('#lastNameInput').val();
+    let employeeID = $('#employeeIDInput').val();
+    let employeeJob = $('#jobTitleInput').val();
+    let employeeSalary = $('#annualSalaryInput').val();
+    // employees.push(new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
+    // $('#jobTitleInput').val(), $('#annualSalaryInput').val()));
     $('tbody').append(`
     <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
+                <td>` + employeeFirst + `</td>
+                <td>` + employeeLast + `</td>
+                <td>` + employeeID +`</td>
+                <td>` + employeeJob +`</td>
+                <td>` + employeeSalary +`</td>
             </tr>
     `)
     $('#firstNameInput').val('');
