@@ -17,14 +17,11 @@ let totalCosts = 0;
 let totalMonthlyOutput = '';
 
 function readyNow() {
-    submitEmployee();
+    $('#submitEmployeeButton').on('click', appendEmployeeInfo);
+    $('#employeeInfoTable').on('click', '.deleteEmployeeButton', deleteEmployee);
 } // end readyNow 
 
 // Function to append table elements to the DOM
-function submitEmployee() {
-    $('#submitEmployeeButton').on('click', appendEmployeeInfo);
-} // end submitEmployee
-
 function appendEmployeeInfo() {
     $('#totalCostOutput').empty();
 
@@ -35,13 +32,14 @@ function appendEmployeeInfo() {
     let employeeSalary = $('#annualSalaryInput').val();
     // employees.push(new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
     // $('#jobTitleInput').val(), $('#annualSalaryInput').val()));
-    $('tbody').append(`
+    $('#employeeInfoTable').append(`
     <tr>
                 <td>` + employeeFirst + `</td>
                 <td>` + employeeLast + `</td>
                 <td>` + employeeID + `</td>
                 <td>` + employeeJob + `</td>
                 <td>` + employeeSalary + `</td>
+                <td><button class="deleteEmployeeButton">Delete</button></td>
             </tr>
     `)
 
@@ -69,3 +67,7 @@ function calculateMonthlyCosts() {
     return totalMonthlyOutput;
 } // end calculateMonthly Costs
 
+//function to delete employee data row
+function deleteEmployee() {
+    $(this).parents()[1].remove();
+} // end deleteEmployee

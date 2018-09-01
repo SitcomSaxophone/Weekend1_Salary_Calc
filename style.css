@@ -16,8 +16,23 @@ h3 {
     font-family: 'Arial', sans-serif;
 }
 
+tbody {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
 th {
+    text-align: center;
     font-family: 'Arial', sans-serif;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+td {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
 
 footer {
