@@ -61,10 +61,9 @@ function calculateMonthlyCosts() {
     let newEmployeeSalary = $('#annualSalaryInput').val();
     totalCosts = totalCosts + (newEmployeeSalary / 12);
     if (totalCosts > 20000) {
-        $('#totalCostOutput').css('color', 'red');
+        $('#totalCostOutput').css('background-color', 'red');
     }
     totalMonthlyOutput = totalMonthlyOutput + totalCosts.toFixed(2);
-    return totalMonthlyOutput;
 } // end calculateMonthly Costs
 
 //function to delete employee data row
