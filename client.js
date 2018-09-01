@@ -13,7 +13,8 @@ $(document).ready(readyNow); // end doc ready
 //let employees = []; // array of employees
 //const newEmployee = new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
 //   $('#jobTitleInput').val(), $('#annualSalaryInput').val()); // end newEmployee variable
-
+let totalCosts = 0;
+let totalMonthlyOutput = '';
 
 function readyNow() {
     submitEmployee();
@@ -21,11 +22,12 @@ function readyNow() {
 
 // Function to append table elements to the DOM
 function submitEmployee() {
-    $('#submitEmployeeButton').on('click', submitButtonClick);
-    
-}
-function submitButtonClick() {
-    console.log('clicked');
+    $('#submitEmployeeButton').on('click', appendEmployeeInfo);
+} // end submitEmployee
+
+function appendEmployeeInfo() {
+    $('#totalCostOutput').empty();
+
     let employeeFirst = $('#firstNameInput').val();
     let employeeLast = $('#lastNameInput').val();
     let employeeID = $('#employeeIDInput').val();
@@ -37,27 +39,33 @@ function submitButtonClick() {
     <tr>
                 <td>` + employeeFirst + `</td>
                 <td>` + employeeLast + `</td>
-                <td>` + employeeID +`</td>
-                <td>` + employeeJob +`</td>
-                <td>` + employeeSalary +`</td>
+                <td>` + employeeID + `</td>
+                <td>` + employeeJob + `</td>
+                <td>` + employeeSalary + `</td>
             </tr>
     `)
+
+    calculateMonthlyCosts();
+    $('#totalCostOutput').append(totalMonthlyOutput);
 
     $('#firstNameInput').val(''); // empties the inputs after button click
     $('#lastNameInput').val('');  //
     $('#employeeIDInput').val(''); //
     $('#jobTitleInput').val(''); //
     $('#annualSalaryInput').val(''); // 
-} // end submitButtonClick
+} // end appendEmployeeInfo
 
 // Using the stored information, calculate monthly costs and
 // append this to the to DOM. If the total monthly cost exceeds  
 // $20,000, add a red background color to the total monthly cost.
-function calculateMonthlyCosts () {
+function calculateMonthlyCosts() {
+    totalMonthlyOutput = 'Total Monthly Costs: $'; 
     let employeeSalary = $('#annualSalaryInput').val();
-    let totalCosts = 0;
-    totalCosts += (employeeSalary/12);
-    
-    
+    totalCosts = totalCosts + (employeeSalary / 12);
+    if (totalCosts > 20000) {
+        $('#totalCostOutput').css('color', 'red');
+    }
+    totalMonthlyOutput = totalMonthlyOutput + totalCosts.toFixed(2);
+    return totalMonthlyOutput;
 } // end calculateMonthly Costs
 
