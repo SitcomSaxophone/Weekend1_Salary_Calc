@@ -58,8 +58,8 @@ function appendEmployeeInfo() {
 // $20,000, add a red background color to the total monthly cost.
 function calculateMonthlyCosts() {
     totalMonthlyOutput = 'Total Monthly Costs: $'; 
-    let employeeSalary = $('#annualSalaryInput').val();
-    totalCosts = totalCosts + (employeeSalary / 12);
+    let newEmployeeSalary = $('#annualSalaryInput').val();
+    totalCosts = totalCosts + (newEmployeeSalary / 12);
     if (totalCosts > 20000) {
         $('#totalCostOutput').css('color', 'red');
     }
