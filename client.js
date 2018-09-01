@@ -57,7 +57,7 @@ function appendEmployeeInfo() {
 // append this to the to DOM. If the total monthly cost exceeds  
 // $20,000, add a red background color to the total monthly cost.
 function calculateMonthlyCosts() {
-    totalMonthlyOutput = 'Total Monthly Costs: $'; 
+    totalMonthlyOutput = 'Total Monthly Costs: $';
     let newEmployeeSalary = $('#annualSalaryInput').val();
     totalCosts = totalCosts + (newEmployeeSalary / 12);
     if (totalCosts > 20000) {
