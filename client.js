@@ -1,18 +1,17 @@
 $(document).ready(readyNow); // end doc ready
 
-// class Employee {
-//     constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
-//         this.firstName = firstName;
-//         this.lastName = lastName;
-//         this.idNumber = idNumber;
-//         this.jobTitle = jobTitle;
-//         this.annualSalary = annualSalary;
-//     }
-// } // end Employee class constructor
+class Employee {
+    constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.idNumber = idNumber;
+        this.jobTitle = jobTitle;
+        this.annualSalary = annualSalary;
+    }
+} // end Employee class constructor
 
-//let employees = []; // array of employees
-//const newEmployee = new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
-//   $('#jobTitleInput').val(), $('#annualSalaryInput').val()); // end newEmployee variable
+let employees = []; // array of employees
+
 let totalCosts = 0;
 let totalMonthlyOutput = '';
 
@@ -30,8 +29,9 @@ function appendEmployeeInfo() {
     let employeeID = $('#employeeIDInput').val();
     let employeeJob = $('#jobTitleInput').val();
     let employeeSalary = $('#annualSalaryInput').val();
-    // employees.push(new Employee($('#firstNameInput').val(), $('#lastNameInput').val(), $('#employeeIDInput').val(),
-    // $('#jobTitleInput').val(), $('#annualSalaryInput').val()));
+
+    employees.push(new Employee(employeeFirst, employeeLast, employeeID, employeeJob, employeeSalary));
+    
     $('#employeeInfoTable').append(`
     <tr>
                 <td>` + employeeFirst + `</td>
@@ -41,10 +41,10 @@ function appendEmployeeInfo() {
                 <td>` + employeeSalary + `</td>
                 <td><button class="deleteEmployeeButton">Delete</button></td>
             </tr>
-    `)
+    `) // appends table elements to DOM
 
     calculateMonthlyCosts();
-    $('#totalCostOutput').append(totalMonthlyOutput);
+    $('#totalCostOutput').append(totalMonthlyOutput); // appends monthly costs to DOM
 
     $('#firstNameInput').val(''); // empties the inputs after button click
     $('#lastNameInput').val('');  //
@@ -53,8 +53,7 @@ function appendEmployeeInfo() {
     $('#annualSalaryInput').val(''); // 
 } // end appendEmployeeInfo
 
-// Using the stored information, calculate monthly costs and
-// append this to the to DOM. If the total monthly cost exceeds  
+// function to calculate monthly costs. If the total monthly cost exceeds  
 // $20,000, add a red background color to the total monthly cost.
 function calculateMonthlyCosts() {
     totalMonthlyOutput = 'Total Monthly Costs: $';
