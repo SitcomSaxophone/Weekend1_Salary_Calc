@@ -22,13 +22,13 @@ function readyNow() {
 
 // Function to append table elements to the DOM
 function appendEmployeeInfo() {
-    $('#totalCostOutput').empty();
+    $('#totalCostOutput').empty(); // empties output page element
 
-    let employeeFirst = $('#firstNameInput').val();
-    let employeeLast = $('#lastNameInput').val();
-    let employeeID = $('#employeeIDInput').val();
-    let employeeJob = $('#jobTitleInput').val();
-    let employeeSalary = $('#annualSalaryInput').val();
+    let employeeFirst = $('#firstNameInput').val(); // These variables would be redundant if we were using 
+    let employeeLast = $('#lastNameInput').val(); // object literal notation.
+    let employeeID = $('#employeeIDInput').val(); //
+    let employeeJob = $('#jobTitleInput').val(); //
+    let employeeSalary = $('#annualSalaryInput').val(); //
 
     employees.push(new Employee(employeeFirst, employeeLast, employeeID, employeeJob, employeeSalary));
     
@@ -53,16 +53,16 @@ function appendEmployeeInfo() {
     $('#annualSalaryInput').val(''); // 
 } // end appendEmployeeInfo
 
-// function to calculate monthly costs. If the total monthly cost exceeds  
+// Function to calculate monthly costs. If the total monthly cost exceeds  
 // $20,000, add a red background color to the total monthly cost.
 function calculateMonthlyCosts() {
-    totalMonthlyOutput = 'Total Monthly Costs: $';
-    let newEmployeeSalary = $('#annualSalaryInput').val();
-    totalCosts = totalCosts + (newEmployeeSalary / 12);
-    if (totalCosts > 20000) {
-        $('#totalCostOutput').css('background-color', 'red');
-    }
-    totalMonthlyOutput = totalMonthlyOutput + totalCosts.toFixed(2);
+    totalMonthlyOutput = 'Total Monthly Costs: $'; // Would be more concise if utilizing information from an array,
+    let newEmployeeSalary = $('#annualSalaryInput').val(); // a for-of loop would be clean for the scope of this assignment, 
+    totalCosts = totalCosts + (newEmployeeSalary / 12); // see HTML comment regarding a span element for appending the monthly
+    if (totalCosts > 20000) { //
+        $('#totalCostOutput').css('background-color', 'red'); // cost output to the DOM
+    } //
+    totalMonthlyOutput = totalMonthlyOutput + totalCosts.toFixed(2); //
 } // end calculateMonthly Costs
 
 //function to delete employee data row
